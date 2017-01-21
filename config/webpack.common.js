@@ -31,20 +31,21 @@ module.exports = {
                 include: pathResolver.fullPath('src', 'app'),
                 loader: 'raw-loader'
             },
-            // {
-            //     test: /\.scss$/,
-            //     include: pathResolver.fullPath('src', 'app'),
-            //     loaders: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
-            // },
-            // {
-            //     test: /\.css$/,
-            //     include: pathResolver.fullPath('src', 'app'),
-            //     loaders: ['style-loader', 'css-loader']
-            // },
+            {
+                test: /\.scss$/,
+                include: pathResolver.fullPath('src', 'app'),
+                loaders: ['raw-loader', 'sass-loader']
+            },
             {
                 test: /\.css$/,
                 exclude: pathResolver.fullPath('src', 'app'),
-                loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
+                //loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
+                loaders: ['style-loader', 'css-loader']
+            },
+            {
+                test: /\.scss$/,
+                exclude: pathResolver.fullPath('src', 'app'),
+                loaders: ['style-loader', 'css-loader', 'sass-loader']
             },
             {
                 test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,

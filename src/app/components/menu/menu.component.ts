@@ -4,7 +4,7 @@ import {MenuService} from './menu.service';
 @Component({
     selector: 'menu',
     templateUrl: './menu.view.html',
-    styleUrls: ['./menu.style.css']
+    styleUrls: ['./menu.style.scss']
 })
 export class MenuComponent {
     content: string = 'Menu';
