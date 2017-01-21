@@ -34,24 +34,28 @@ module.exports = {
             {
                 test: /\.scss$/,
                 include: pathResolver.fullPath('src', 'app'),
-                loaders: ['raw-loader', 'sass-loader']
+                loaders: ['raw-loader', 'postcss-loader', 'sass-loader']
             },
             {
                 test: /\.css$/,
                 exclude: pathResolver.fullPath('src', 'app'),
-                //loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
                 loaders: ['style-loader', 'css-loader']
             },
             {
                 test: /\.scss$/,
                 exclude: pathResolver.fullPath('src', 'app'),
-                loaders: ['style-loader', 'css-loader', 'sass-loader']
+                loaders: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
             },
             {
                 test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
                 loader: 'url-loader?limit=10000&name=[path]/[name].[hash].[ext]'
             }
         ]
+    },
+    postcss: function () {
+        return [
+            require('autoprefixer')
+        ];
     },
 
     plugins: [
