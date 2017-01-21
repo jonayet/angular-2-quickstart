@@ -11,7 +11,7 @@ import { routes } from './app.router';
 @NgModule({
     imports: [
         BrowserModule,
-	FormsModule,
+	    FormsModule,
         RouterModule.forRoot(routes)
     ],
     declarations: [
